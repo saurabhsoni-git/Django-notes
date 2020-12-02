@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} about {% endblock title %}
+{% block aboutactive %} active {% endblock aboutactive %}
+{% block csshome %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock csshome %}
+{% block body %} 
+<div class="my-4 mx-auto" style="width: 250px;">
+<img src="{% static 'images/01.png'%}" alt="anonymous" style="height:15em;width:15em;">
+</div>
+<h2 style="text-align:center;"> Anonymous</h2>
+<div class="container">
+<p class="text-justify">The page belongs to someone who writes about the news, blog and trivias. As we get older life grows into us and the more it's shared the brighter it looks. GullyBlog is a space where words are expressed in the form of Blog, news and trivias</p>
+</div>
+<div class="footer" > 
+<footer class="container mt-3">
+    <p class="float-right"><a href="/blog">Back to blog</a></p>
+    <p>© 2020 GullyBlog.com · <a href="#">Privacy</a></p>
+</footer>
+</div> 
+
+{% endblock body %}

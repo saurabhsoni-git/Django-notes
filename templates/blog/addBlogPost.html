@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} Add New Blog {% endblock title %}
+
+{% block body %}
+<div class="container my-3">
+    <h2>-: Add New Post Here :- </h2>
+    
+    <form method="post" action="addBlogPost">
+        {% csrf_token %}
+        {% comment %} <div class="form-group">
+            <label for="sno">sno</label>
+            <input type="text" class="form-control" id="sno" name="sno" aria-describedby="name">
+        </div> {% endcomment %}
+        <div class="form-group">
+            <label for="title">Title:-</label>
+            <input type="text" class="form-control" id="title1" name="title1" aria-describedby="name">
+        </div>
+        <div class="form-group">
+            <label for="content">Blog Body:-</label>
+            <textarea class="form-control" name="content1" id="content1" cols="30" rows="5"></textarea>
+            <small id="emailHelp" class="form-text text-muted">if you have any query please share.</small>
+        </div>
+        <div class="form-group">
+            <label for="author">Author:-</label>
+            <input type="text" class="form-control" name="author1" id="author1" aria-describedby="name">
+        </div>
+        <div class="form-group">
+            <label for="slug">What are you writing about:-</label>
+            <input type="text" class="form-control" name="slug1" id="slug1" aria-describedby="name">
+        </div>
+        <div class="form-group">
+            <label for="timestamp">Timestamp:-</label>
+            <input type="time" class="form-control" id="timeStamp" name="timeStamp" aria-describedby="name">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+{% endblock body %}

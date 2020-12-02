@@ -1,0 +1,14 @@
+body
+{
+    /* background-color: blueviolet; */
+    background-image: url("https://source.unsplash.com/1600x900/?poetry");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.main_cont{
+    background-color: white;
+    border-radius: 30px;
+    opacity: 40%;
+    margin-top: 10%;
+}

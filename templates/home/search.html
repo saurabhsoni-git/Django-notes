@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %} search result {% endblock title %}
+{% block blogactive %} active {% endblock blogactive %}
+{% block body %}
+
+<div class="container my-4 ">
+    <h2>serach results</h2>
+    {% if allPosts|length < 1 %}
+    <p>No search results</p>
+    Your search query - <b>{{query}} </b>- did not match any documents.
+    suggestions:
+    <ul>
+    <li>Make sure that all word are spelled correctly.</li>
+    <li>try different keywords.</li>
+    <li>try more general keywords.</li>
+    <li>try fewer keywords.</li>
+    </ul>
+    {% endif %}
+    {% for post in allPosts %}
+    <div class="card my-3 ">
+        <h5 class="card-header">Post by: {{post.author}}</h5>
+        <div class="card-body">
+            <h5 class="card-title">{{post.title}}</h5>
+            <pre class="card-text" style="font-family: Arial, Helvetica, sans-serif;">{{post.content | truncatechars:400}}</pre>
+            <a href="/blog/{{post.slug}}" class="btn btn-primary">Read more</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock body %}
