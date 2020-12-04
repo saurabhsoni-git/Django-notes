@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse
 from blog.models import Post
 from django.db import IntegrityError
 from django.contrib import messages
+from django.contrib.auth import authenticate
 
 # Create your views here.
 def blogHome(request):
@@ -18,39 +19,21 @@ def blogPost(request, slug):
 
 
 def addBlogPost(request):
+    
     if request.method == 'POST':
         sno=request.POST.get('sno')
         title=request.POST.get('title1')
         content=request.POST.get('content1')
-        author=request.POST.get('author1')
+        # author=request.POST.get('author1')
+        author = request.user
         slug =request.POST.get('slug1')
-        timeStamp=request.POST.get('timeStamp')
-        # print(title1, content1, author1, slug1)
+        timeStamp=request.POST.get('datetimepicker')
+        print(title, content, author, slug)
 
         addpost = Post(sno=sno, title=title, content=content, author=author, slug=slug, timeStamp=timeStamp)
         addpost.save()
         
     else:
         return HttpResponse('404 Page Not Found')
-    return render(request, 'blog/addBlogPost.html')
+    return render(request, 'blog/blogHome.html')
 
-
-    # try:
-    #     title = request.POST["title"]
-    # except KeyError:
-    #     title = "Guest"
-
-# def addBlogPost(request):
-    
-#     title = request.POST.get('title')
-#     content = request.POST.get('content')
-#     author = request.POST.get('author')
-#     slug = request.POST.get('slug')
-#     print(title, content, author, slug)
-
-#     addpost = Post(title=title, content=content, author=author, slug=slug)
-#     addpost.save()
-#     messages.success(request, "your form has been submitted")
-    
-#     return HttpResponse('404 Page Not Found')
-#     return render(request, 'blog/addBlogPost.html')
