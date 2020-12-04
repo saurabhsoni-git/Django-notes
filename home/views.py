@@ -103,3 +103,9 @@ def handleLogout(request):
     logout(request)
     messages.success(request, "Successfully Logged Out")
     return redirect('home')
+
+def profile(request):
+    allPosts = Post.objects.filter(author=request.user)
+    context = {'allPosts' : allPosts}
+    return render(request, 'home/profile.html', context)
+    
